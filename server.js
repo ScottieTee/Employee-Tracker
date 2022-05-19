@@ -44,6 +44,30 @@ console.log(err);
 console.log(result);
 });
 
+//Add a role
+const sql = `INSERT INTO roles (title, salary, department) 
+VALUES (?, ?, ?)`;
+const params = [//user adds the name variable of the new department//];
+
+db.query(sql, params, (err, result) => {
+if (err) {
+console.log(err);
+}
+console.log(result);
+});
+
+//Add an employee
+const sql = `INSERT INTO employees (first_name, last_name, role_id, manager_id) 
+VALUES (?, ?, ?)`;
+const params = [//user adds the name variable of the new department//];
+
+db.query(sql, params, (err, result) => {
+if (err) {
+console.log(err);
+}
+console.log(result);
+});
+
 // Default response for any other request (Not Found)
 app.use((req, res) => {
     res.status(404).end();
