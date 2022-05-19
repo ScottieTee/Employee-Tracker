@@ -20,11 +20,29 @@ const db = mysql.createConnection(
     console.log('Connected to the tracker database.')
   );
 
-//app.get('/', (req, res) => {
-    //res.json({
-      //message: 'Hello World'
-   // });
-  //});
+//Query that requests a list of all departments
+db.query(`SELECT * FROM department`, (err, rows) => {
+    console.log(rows);
+  });
+// GET a single department
+//db.query(`SELECT * FROM department WHERE id = //hidden variable will go here//`, (err, row) => {
+   // if (err) {
+  //    console.log(err);
+  //  }
+  //  console.log(row);
+ // });
+
+ //Add a department
+const sql = `INSERT INTO department (name) 
+VALUES (?)`;
+const params = [//user adds the name variable of the new department//];
+
+db.query(sql, params, (err, result) => {
+if (err) {
+console.log(err);
+}
+console.log(result);
+});
 
 // Default response for any other request (Not Found)
 app.use((req, res) => {
