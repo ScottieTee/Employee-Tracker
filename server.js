@@ -24,13 +24,29 @@ const db = mysql.createConnection(
 db.query(`SELECT * FROM department`, (err, rows) => {
     console.log(rows);
   });
-// GET a single department
+// GET a single department - i think??
 //db.query(`SELECT * FROM department WHERE id = //hidden variable will go here//`, (err, row) => {
    // if (err) {
   //    console.log(err);
   //  }
   //  console.log(row);
  // });
+
+// Get all departments
+app.get('/api/department', (req, res) => {
+    const sql = `SELECT * FROM department`;
+  
+    db.query(sql, (err, rows) => {
+      if (err) {
+        res.status(500).json({ error: err.message });
+        return;
+      }
+      res.json({
+        message: 'success',
+        data: rows
+      });
+    });
+  });
 
  //Add a department
 const sql = `INSERT INTO department (name) 
@@ -44,7 +60,23 @@ console.log(err);
 console.log(result);
 });
 
-//Add a role
+// Get all roles
+app.get('/api/roles', (req, res) => {
+    const sql = `SELECT * FROM roles`;
+  
+    db.query(sql, (err, rows) => {
+      if (err) {
+        res.status(500).json({ error: err.message });
+        return;
+      }
+      res.json({
+        message: 'success',
+        data: rows
+      });
+    });
+  });
+
+  //Add a role
 const sql = `INSERT INTO roles (title, salary, department) 
 VALUES (?, ?, ?)`;
 const params = [//user adds the name variable of the new department//];
@@ -55,6 +87,22 @@ console.log(err);
 }
 console.log(result);
 });
+
+// Get all employees
+app.get('/api/employees', (req, res) => {
+    const sql = `SELECT * FROM employees`;
+  
+    db.query(sql, (err, rows) => {
+      if (err) {
+        res.status(500).json({ error: err.message });
+        return;
+      }
+      res.json({
+        message: 'success',
+        data: rows
+      });
+    });
+  });
 
 //Add an employee
 const sql = `INSERT INTO employees (first_name, last_name, role_id, manager_id) 
