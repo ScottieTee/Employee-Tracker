@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 //this may not be correct..
-app.use('/api', Routes);
+app.use('/api', routes);
 
 //Start Tracker
 new Start().begin();
