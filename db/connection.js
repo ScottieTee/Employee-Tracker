@@ -5,8 +5,8 @@ const mysql = require("mysql2");
 const db = mysql.createConnection(
     {
       host: 'localhost',
-      user: user,
-      password: pass,
+      user: 'root',
+      password: 'root',
       database: 'tracker',
     },
     console.log('Connected to the tracker database.')
