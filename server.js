@@ -18,10 +18,10 @@ app.use('/api', routes);
 //Start Tracker
 new Start().begin();
 
-db.connect((err, db) => {
-    if (err) throw err; 
-    app.listen(PORT, ()=> {});
-});
+// Expressdb.connect((err, db) => {
+   // if (err) throw err; 
+   // app.listen(PORT, ()=> {});
+//});
 
 // Default response for any other request (Not Found)
 app.use((req, res) => {
