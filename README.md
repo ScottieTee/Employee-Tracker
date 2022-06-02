@@ -1,5 +1,14 @@
 # Employee-Tracker
 
+DIRECTIONS FOR USE:
+In the terminal please run the following command:
+1. 'mysql -u root -p'
+2. Enter your password
+3. Run 'source db/schema.sql'
+4. Run 'source db/seeds.sql'
+5. Exit mysql 
+6. Run npm start to begin the tracker
+
 USER STORY
 AS A business owner
 I WANT to be able to view and manage the departments, roles, and employees in my company
